@@ -1,63 +1,50 @@
-# Döngüyü Kırma: break
-sayilar = [1, 5, 12, 15, 22, 30, 45]
-for sayi in sayilar:
-    print(f"Kontrol edilen sayi: {sayi}")
-    if sayi == 22:
-        print("Aranan sayı bulundu! Döngüden çıkılıyor.")
+# Alıştırma 1
+
+yasakli_kelimeler = ["reklam", "spam", "virüs", "bedava"]
+
+cumle = "bu bir spam mail değil sadece bedava ürün tanıtımı"
+kelimeler = cumle.split()
+sayac = 0
+
+for kelime in kelimeler:
+    sayac += 1
+    if kelime in yasakli_kelimeler:
+        print(f"Yasaklı kelime tespit edildi: {kelime}")
+        break
+    if sayac == len(kelimeler):
+        print("Yasaklı kelime bulunamadı")
+
+# Alıştırma 2
+veri_akisi = [10, 20, -5, 30, -15, 40, 50, -2]
+pozitif_sayilar = []
+toplam = 0
+for sayi in veri_akisi:
+    if sayi < 0:
+        continue
+    pozitif_sayilar.append(sayi)
+
+for pozitif_sayi in pozitif_sayilar[:3]:
+    toplam += pozitif_sayi
+
+print("Pozitif Sayılar:", pozitif_sayilar)
+print("Toplam:", toplam)
+
+# Alıştırma 3
+yapilacaklar = []
+while True:
+    gorev = input("\n Ne yapmak istersin? (ekle / sil / göster / çıkış):").lower()
+    if gorev == "ekle":
+        yapilacaklar.append(input("Eklenecek görevi yaz: "))
+    elif gorev == "sil":
+        silinecek_gorev = input("Silinecek görevi yaz: ")
+        if silinecek_gorev in yapilacaklar:
+            yapilacaklar.remove(silinecek_gorev)
+        else:
+            print("Böyle bir görev bulunamadı.")
+    elif gorev == "göster":
+        print(f"Yapılacaklar Listesi:\n {yapilacaklar}")
+    elif gorev == "çıkış":
+        print("Çıkış yapıldı.")
         break
     else:
-        print("Sayı bulunamadı")
-
-# Adımı Atlamak: continue
-
-# Sadece çift sayıları toplayalım, tek sayıları pas geçelim.
-sayilar = [1, 2, 3, 4, 5, 6, 7, 8]
-toplam = 0
-
-for sayi in sayilar:
-    # Eğer sayı tek ise (2'ye bölümünden kalan 1 ise)...
-    if sayi % 2 != 0:
-        continue  # Bu adımı atla, aşağıdaki toplama işlemini yapma.
-
-    # Bu satıra sadece sayı çift ise ulaşılır.
-    toplam += sayi
-    print(f"{sayi} eklendi. Yeni toplam: {toplam}")
-
-print(f"Sonuç: Sadece çift sayıların toplamı = {toplam}")
-
-sayilar = [1, 2, 3, 4, 5, 6, 7, 8]
-toplam = 0
-for sayi in sayilar:
-    if sayi % 2 != 0:
-        continue
-    toplam = toplam + sayi
-    print(f"{sayi} eklendi. Yeni toplam: {toplam}")
-
-print(f"Listedeki çift sayılarn toplamı: {toplam}")
-
-# Varlık Kontrolü: in Operatörü
-izinli_kullanicilar = ["yavuz", "admin", "guest", "root"]
-
-kullanici_adi = input("Kullanici adinizi giriniz: ").lower()
-
-if kullanici_adi in izinli_kullanicilar:
-    print("Giriş izni verildi")
-else:
-    print("Bu kullanıcı adı listede yok. Erişim reddedildi.")
-
-# Listeden Eleman Silme
-
-
-gorevler = ["e-postaları kontrol et", "raporu yaz", "toplantıya katıl", "kahve iç"]
-print(f"Orijinal liste: {gorevler}")
-
-gorevler.remove("raporu yaz")
-print("'.remove()' sonrası:", gorevler)
-
-biten_gorev = gorevler.pop()
-print(f"Bitirilen ve listeden çıkarılan görev: {biten_gorev}")
-print("'.pop()' sonrası:", gorevler)
-
-ilk_gorev = gorevler.pop(0)
-print(f"İptal edilen ilk görev: {ilk_gorev}")
-print("'.pop(0)' sonrası:", gorevler)
+        print("Geçersiz Seçim")
