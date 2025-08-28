@@ -1,25 +1,24 @@
-for sayi in range(5):
-    print(sayi)
+#alıştırma 1
+meyveler = ["elma", "muz", "karpuz", "kiraz"]
+for meyve in meyveler:
+    print(meyve)
 
-for sayi in range(1,5):
-    print(sayi)
+for meyve in meyveler:
+    print(f"Sepetteki meyve: {meyve}")
 
-for _ in range(3):
-    print("Merhaba!")
+#alıştırma 2
+sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+cift_sayilar = []
+for sayi in sayilar:
+    if sayi % 2 == 0:
+        cift_sayilar.append(sayi)
 
-notlar = [85, 92, 78, 65, 100]
-toplam = 0
-for not_degeri in notlar:
-    toplam= toplam + not_degeri
-    print(f"Şu anki not: {not_degeri}, Toplam: {toplam}")
+print(f"Listedeki çift sayılar: {cift_sayilar}")
 
-ortalama = toplam / len(notlar)
-print(f"Notların toplamı: {toplam}")
-print(f"Notların ortalaması: {ortalama}")
+#alıştırma 3
+secilen_sayi = int(input("1 ile 10 arasında bir sayı giriniz:\n"))
+print(f"{secilen_sayi} için çarpım tablosu:")
 
-gunler = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"]
-
-for gun in gunler:
-    print(f"Bugün günlerden {gun}")
-
-print("Hafta içi bitti!")
+for dongu_sayisi in range(1,11):
+    sonuc = secilen_sayi * dongu_sayisi
+    print(f"{secilen_sayi} x {dongu_sayisi} = {sonuc}")
