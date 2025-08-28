@@ -1,39 +1,29 @@
-# Üzerinde çalışacağımız örnek liste
-harfler = ['a', 'b', 'c', 'd', 'e', 'f']
-# İndeksler: 0    1    2    3    4    5
+# alıştırma 1
+puanlar = [55, 67, 88, 75, 99, 45, 83]
+print(f"ilk puan: {puanlar[0]}")
+print(f"son puan: {puanlar[-1]}")
+# print(f"11. eleman puan: {puanlar[10]}") IndexError: list index out of range hatası alırız. çünkü 10. indeks yok.
 
-ilk_harf = harfler[0]
-print(f" ilk harf: {ilk_harf}")
 
-ucuncu_harf = harfler[2]
-print(f" ilk harf: {ucuncu_harf}")
+# alıştırma 2
 
-orta_kisim = harfler[1:4]
-print("1. ve 4. indeks arası:", orta_kisim)
+yarismacilar = ["Ali", "Veli", "Ayşe", "Fatma", "Can", "Buse", "Zeynep"]
 
-bastaki_ve_sondaki_haric = harfler[1:5]
-print(f"ilk ve son eleman hariç: {bastaki_ve_sondaki_haric}")
+ilk_uc = yarismacilar[:3]
+print(f"Yarışmayı ilk üç sırada bitirenler: {ilk_uc}")
+son_uc = yarismacilar[-3:]
+print(f"Yarışmayı son üç sırada bitirenler: {son_uc}")
 
-ilk_uc_eleman = harfler[:3]
-print(f"ilk uc eleman: {ilk_uc_eleman}")
+print(f"Ayşe ve Fatma hariç diğer yarismacilar {yarismacilar[:2] + yarismacilar[-3:]}")
 
-sondan_uc_eleman = harfler[3:]
-print(f"sondan uc eleman: {sondan_uc_eleman}")
+# alıştırma 3
+karisik_veri = ["sensör_A", 2025, "ağustos", 28, 16, 45, 30.5, True, "OK"]
 
-tum_elemanlar= harfler[:]
-print(f"tum elemanlar: {tum_elemanlar}")
-
-negatif_indeks_calisma = harfler[-3:-4]
-print(f"negatif çalışma: {negatif_indeks_calisma}")
-
-sayilar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-cift_sayilar = sayilar[::2]
-print(f"cift sayilar: {cift_sayilar}")
-
-tek_sayilar = sayilar[1::2]
-print(f"tek sayilar: {tek_sayilar}")
-
-tersten_sayilar = sayilar[::-1]
-print(f"tersten sayilar: {tersten_sayilar}")
-
+tarih_bilgisi = karisik_veri[1:4]
+print(f"Tarih bilgisi: {tarih_bilgisi}")
+saat_bilgisi = karisik_veri[-5:-3]
+print(f"Saat bilgisi: {saat_bilgisi}")
+karisik_veri_ters = karisik_veri[::-1]
+print(f"Tersten liste: {karisik_veri_ters}")
+bir_atlayarak_liste = karisik_veri[::2]
+print(f"Listede bir atlayarak yazma: {bir_atlayarak_liste}")
