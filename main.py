@@ -1,24 +1,31 @@
-alinacaklar_listesi = []
-ogrenci_notlari = [85, 92, 78, 65, 100]
-kisisel_bilgiler = ["Yavuz", 39, "Gümüşhane", True]
-print("Boş liste:", alinacaklar_listesi)
-print("Öğrenci notları:", ogrenci_notlari)
-print("Kişisel bilgiler:", kisisel_bilgiler)
-print("Öğrenci notları listesinin tipi:", type(ogrenci_notlari))
+# alıştırma 1
+gunler = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"]
 
-not_sayisi = len(ogrenci_notlari)
-print(f"Öğrenci notu sayısı: {not_sayisi}")
-alinacaklar_sayisi = len(alinacaklar_listesi)
-print(f"Alınacaklar sayısı: {alinacaklar_sayisi}")
+print(f"Hafta içinde {len(gunler)} gün vardır.")
 
-alinacaklar_listesi = ["peynir", "ekmek", "su"]
-print(f"Alınacaklar listesi: {alinacaklar_listesi}")
-print(f"Alınacaklar sayısı: {len(alinacaklar_listesi)}")
+gunler.append("Cumartesi")
+gunler.append("Pazar")
 
-alinacaklar_listesi.append("süt")
-print(f"Alınacaklar listesi: {alinacaklar_listesi}")
-print(f"Alınacaklar sayısı: {len(alinacaklar_listesi)}")
+print(f"Haftada {len(gunler)} gün vardır.")
 
-alinacaklar_listesi.append("çay")
-print(f"Alınacaklar listesi: {alinacaklar_listesi}")
-print(f"Alınacaklar sayısı: {len(alinacaklar_listesi)}")
+# alıştırma 2
+favori_filmler = []
+
+favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
+favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
+favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
+print(f"Favori film listeniz oluşturuldu:\n {favori_filmler}")
+print(f"Listenizde toplam {len(favori_filmler)} tane film bulunmaktadır.")
+
+# alıştırma 3
+
+karisik_iste = []
+karisik_iste.append(701)
+karisik_iste.append("Liste çalışması")
+karisik_iste.append("2.53")
+karisik_iste.append(False)
+karisik_iste.append(["fenerbahçe", "galatasaray"])
+
+print(karisik_iste)
+# listenin eleman sayısı 5 olmalı. çünkü listenin kendisi 1 elemandır. listenin içerisinde kaç eleman olduğu önemsizdir
+print(f"Listedeki eleman sayısı: {len(karisik_iste)}")
