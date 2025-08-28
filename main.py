@@ -1,31 +1,39 @@
-# alıştırma 1
-gunler = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"]
+# Üzerinde çalışacağımız örnek liste
+harfler = ['a', 'b', 'c', 'd', 'e', 'f']
+# İndeksler: 0    1    2    3    4    5
 
-print(f"Hafta içinde {len(gunler)} gün vardır.")
+ilk_harf = harfler[0]
+print(f" ilk harf: {ilk_harf}")
 
-gunler.append("Cumartesi")
-gunler.append("Pazar")
+ucuncu_harf = harfler[2]
+print(f" ilk harf: {ucuncu_harf}")
 
-print(f"Haftada {len(gunler)} gün vardır.")
+orta_kisim = harfler[1:4]
+print("1. ve 4. indeks arası:", orta_kisim)
 
-# alıştırma 2
-favori_filmler = []
+bastaki_ve_sondaki_haric = harfler[1:5]
+print(f"ilk ve son eleman hariç: {bastaki_ve_sondaki_haric}")
 
-favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
-favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
-favori_filmler.append(input("Favori filmlerinizden birini yazın: "))
-print(f"Favori film listeniz oluşturuldu:\n {favori_filmler}")
-print(f"Listenizde toplam {len(favori_filmler)} tane film bulunmaktadır.")
+ilk_uc_eleman = harfler[:3]
+print(f"ilk uc eleman: {ilk_uc_eleman}")
 
-# alıştırma 3
+sondan_uc_eleman = harfler[3:]
+print(f"sondan uc eleman: {sondan_uc_eleman}")
 
-karisik_iste = []
-karisik_iste.append(701)
-karisik_iste.append("Liste çalışması")
-karisik_iste.append("2.53")
-karisik_iste.append(False)
-karisik_iste.append(["fenerbahçe", "galatasaray"])
+tum_elemanlar= harfler[:]
+print(f"tum elemanlar: {tum_elemanlar}")
 
-print(karisik_iste)
-# listenin eleman sayısı 5 olmalı. çünkü listenin kendisi 1 elemandır. listenin içerisinde kaç eleman olduğu önemsizdir
-print(f"Listedeki eleman sayısı: {len(karisik_iste)}")
+negatif_indeks_calisma = harfler[-3:-4]
+print(f"negatif çalışma: {negatif_indeks_calisma}")
+
+sayilar = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+cift_sayilar = sayilar[::2]
+print(f"cift sayilar: {cift_sayilar}")
+
+tek_sayilar = sayilar[1::2]
+print(f"tek sayilar: {tek_sayilar}")
+
+tersten_sayilar = sayilar[::-1]
+print(f"tersten sayilar: {tersten_sayilar}")
+
