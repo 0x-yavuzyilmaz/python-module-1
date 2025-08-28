@@ -1,16 +1,24 @@
-# çalışma 1
-sayac = 1
+# Alıştırma 1
+sayac = 10
+while sayac > 0:
+    print(sayac)
+    sayac -= 1
+print("Fırlat!")
 
-while sayac <= 5:
-    print(f"sayı: {sayac}")
-    sayac += 1
+# Alıştırma 2
+kullanici_girdisi = ""
+while kullanici_girdisi.lower() != "çıkış":
+    kullanici_girdisi = input("Bir mesaj yazın ('çıkış' yazarak programı sonlandırın):")
+    if kullanici_girdisi.lower() != "çıkış":
+        print(f"Tekrar ediliyor: {kullanici_girdisi}")
+print("Döngü sonlandırıldı")
 
-# çalışma 2
+# Alıştırma 3
 
-parola = "12345"
-tahmin = ""
+toplam = 0
+while toplam < 50:
+    eklenecek_sayi = int(input("Eklenecek bir sayı girin: : "))
+    toplam += eklenecek_sayi
+    print(f"Şu anki toplam: {toplam}")
 
-while tahmin != parola:
-    tahmin = input("Lütfen parola giriniz: ")
-
-print("Doğru parola giriş yapıldı.")
+print(f"Tebrikler! Toplam {toplam} oldu ve 50'yi geçtiniz. Oyun bitti.")
