@@ -1,29 +1,25 @@
-# alıştırma 1
-puanlar = [55, 67, 88, 75, 99, 45, 83]
-print(f"ilk puan: {puanlar[0]}")
-print(f"son puan: {puanlar[-1]}")
-# print(f"11. eleman puan: {puanlar[10]}") IndexError: list index out of range hatası alırız. çünkü 10. indeks yok.
+for sayi in range(5):
+    print(sayi)
 
+for sayi in range(1,5):
+    print(sayi)
 
-# alıştırma 2
+for _ in range(3):
+    print("Merhaba!")
 
-yarismacilar = ["Ali", "Veli", "Ayşe", "Fatma", "Can", "Buse", "Zeynep"]
+notlar = [85, 92, 78, 65, 100]
+toplam = 0
+for not_degeri in notlar:
+    toplam= toplam + not_degeri
+    print(f"Şu anki not: {not_degeri}, Toplam: {toplam}")
 
-ilk_uc = yarismacilar[:3]
-print(f"Yarışmayı ilk üç sırada bitirenler: {ilk_uc}")
-son_uc = yarismacilar[-3:]
-print(f"Yarışmayı son üç sırada bitirenler: {son_uc}")
+ortalama = toplam / len(notlar)
+print(f"Notların toplamı: {toplam}")
+print(f"Notların ortalaması: {ortalama}")
 
-print(f"Ayşe ve Fatma hariç diğer yarismacilar {yarismacilar[:2] + yarismacilar[-3:]}")
+gunler = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma"]
 
-# alıştırma 3
-karisik_veri = ["sensör_A", 2025, "ağustos", 28, 16, 45, 30.5, True, "OK"]
+for gun in gunler:
+    print(f"Bugün günlerden {gun}")
 
-tarih_bilgisi = karisik_veri[1:4]
-print(f"Tarih bilgisi: {tarih_bilgisi}")
-saat_bilgisi = karisik_veri[-5:-3]
-print(f"Saat bilgisi: {saat_bilgisi}")
-karisik_veri_ters = karisik_veri[::-1]
-print(f"Tersten liste: {karisik_veri_ters}")
-bir_atlayarak_liste = karisik_veri[::2]
-print(f"Listede bir atlayarak yazma: {bir_atlayarak_liste}")
+print("Hafta içi bitti!")
