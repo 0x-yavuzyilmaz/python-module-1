@@ -1,24 +1,16 @@
-#alıştırma 1
-meyveler = ["elma", "muz", "karpuz", "kiraz"]
-for meyve in meyveler:
-    print(meyve)
+# çalışma 1
+sayac = 1
 
-for meyve in meyveler:
-    print(f"Sepetteki meyve: {meyve}")
+while sayac <= 5:
+    print(f"sayı: {sayac}")
+    sayac += 1
 
-#alıştırma 2
-sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-cift_sayilar = []
-for sayi in sayilar:
-    if sayi % 2 == 0:
-        cift_sayilar.append(sayi)
+# çalışma 2
 
-print(f"Listedeki çift sayılar: {cift_sayilar}")
+parola = "12345"
+tahmin = ""
 
-#alıştırma 3
-secilen_sayi = int(input("1 ile 10 arasında bir sayı giriniz:\n"))
-print(f"{secilen_sayi} için çarpım tablosu:")
+while tahmin != parola:
+    tahmin = input("Lütfen parola giriniz: ")
 
-for dongu_sayisi in range(1,11):
-    sonuc = secilen_sayi * dongu_sayisi
-    print(f"{secilen_sayi} x {dongu_sayisi} = {sonuc}")
+print("Doğru parola giriş yapıldı.")
