@@ -1,5 +1,15 @@
 sonlandirici = None
-yapilacaklar = []
+yapilacaklar = [
+    ["Pazar alışverişi yap", False],
+    ["Projeyi tamamla", True],
+    ["E-postaları cevapla", False]
+]
+"""
+[ ] 1. Pazar alışverişi yap
+[X] 2. Projeyi tamamla
+[ ] 3. E-postaları cevapla
+"""
+
 while not sonlandirici:
     print(""" 
     --- YAPILACAKLAR LİSTESİ ---
@@ -10,4 +20,19 @@ while not sonlandirici:
 5. Çıkış
 ---------------------------""")
 
+    secim = input("Lütfen bir seçim yapınız:\n")
 
+    # Seçim "1" (Görevleri Göster):
+    if secim == '1':
+        if not yapilacaklar:
+            print("Listenizde hiç görev yok.")
+            break
+        if yapilacaklar:
+            sayac = 1
+            for gorev in yapilacaklar:
+                if gorev[1] == False:
+                    tik = "[ ]"
+                elif gorev[1] == True:
+                    tik = "[X]"
+                print(f"{tik} {sayac}. {str(gorev[0])}")
+                sayac +=1
