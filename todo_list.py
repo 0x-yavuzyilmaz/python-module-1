@@ -35,4 +35,9 @@ while not sonlandirici:
                 elif gorev[1] == True:
                     tik = "[X]"
                 print(f"{tik} {sayac}. {str(gorev[0])}")
-                sayac +=1
+                sayac += 1
+
+    elif secim == '2':
+        yeni_gorev = input("Lütfen eklemek isteyeceğiniz görevi giriniz: ")
+        yapilacaklar.append([yeni_gorev, False])
+        print("Görev başarıyla eklendi.")
