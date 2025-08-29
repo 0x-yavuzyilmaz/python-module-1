@@ -1,28 +1,56 @@
-# Alıştırma 1 (Kolay): Sabit Veriler
+# Alıştırma 1 (Kolay): Sinema Salonu
+sinema_koltuklari = [
+    [1, 0, 0, 1],
+    [0, 1, 0, 0],
+    [1, 1, 1, 0]
+]
+print("En ön sıranın, en sağdaki koltuğunun durumunu:")
+if sinema_koltuklari[0][3] == 1:
+    print("Koltuk Dolu\n")
+else:
+    print("Koltuk Boş\n")
+print("Orta sıranınikinci koltuğunun durumunu:")
 
-ayarlar = ("2.1", "Türkçe", "Koyu")
-print("Tuple'ın ikinci elemanı:", ayarlar[1])
-# Bu verilerin herhangi bir şekilde değişmesini istemediğimiz için tuple veri tipi kullanılmalıdır.
+if sinema_koltuklari[1][1] == 1:
+    print("Koltuk Dolu\n")
+else:
+    print("Koltuk Boş\n")
 
-# Alıştırma 2 (Orta Zorluk): Veri Yapısı Dönüşümleri
+# orta sıranın en son koltuğu doldu.
+sinema_koltuklari[1][3] = 1
 
+print(sinema_koltuklari[0])
+print(sinema_koltuklari[1])
+print(sinema_koltuklari[2])
 
-gunler_tuple = ("Pzt", "Sal", "Çar", "Per", "Cum")
-gunler_liste = list(gunler_tuple)
-gunler_liste.extend(["Cmt", "Pzr"])
-yeni_tuple= tuple(gunler_liste)
-print("Tuple'a yeni günlerin eklenmiş hali:\n", yeni_tuple)
-
-
-# Alıştırma 3 (İleri Seviye): Değişmezliğin Sınırları
+# Alıştırma 2 (Orta Zorluk): Not Ortalamaları
 
 
-ogrenci_verisi = ("Ahmet Yılmaz", 22, ["Matematik", "Fizik"])
-#ogrenci_verisi[1] = 23
-#tuple veri tipi atamaya izin vermediğinden TypeError hatası aldık.
+sinif_listesi = [[80, 90, 100], [70, 75, 80], [95, 88, 92], [60, 65, 70]]
+sira = 1
+for ogrenci in sinif_listesi:
+    notlar_toplami = sum(ogrenci)
+    not_sayisi = len(ogrenci)
+    ortalama = notlar_toplami / not_sayisi
+    print(f" {sira}. öğrencinin not ortalaması: {ortalama:.2f}")
+    sira = sira + 1
 
-ogrenci_verisi[2].append("Kimya")
-print(ogrenci_verisi)
+# Alıştırma 3 (İleri Seviye): Harita üzerinde "X" Bulma
 
-#kod hata vermedi. Çünkü ogrenci_verisi[2].append("Kimya") dediğimizde artık tuple değil tuple içindeki liste elemanına
-#erişmiş olduğumuzdan .append metodu çalışır.
+
+harita = [["-", "-", "-"], ["-", "X", "-"], ["-", "-", "-"]]
+
+for satir_indeksi in range(len(harita)):
+    satir = satir_indeksi + 1
+    hazine_bulundu = False
+    for sutun_indeksi in range(len(harita[satir_indeksi])):
+        sutun = sutun_indeksi + 1
+        if harita[satir_indeksi][sutun_indeksi] == "X":
+            print(f"Hazine {satir}. satır, {sutun}. sütunda bulundu")
+            hazine_bulundu = True
+            break
+
+    if hazine_bulundu:
+        break
+else:
+    print("Hazine bulunamadı")
