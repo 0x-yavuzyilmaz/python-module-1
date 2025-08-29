@@ -45,7 +45,7 @@ while not sonlandirici:
 
     # Seçim "3" (Görev Tamamla):
     elif secim == '3':
-        sira_no = int(input("Lütfen tamamlamak istediğiniz görecin sıra numarasını giriniz: "))
+        sira_no = int(input("Lütfen tamamlamak istediğiniz görevin sıra numarasını giriniz: "))
         gorev_indeks = sira_no - 1
         if gorev_indeks >= len(yapilacaklar):
             print("Hatalı görev no girdiniz")
@@ -54,4 +54,16 @@ while not sonlandirici:
                 print("Görev zaten tamamlanmış gözüküyor!")
             else:
                 yapilacaklar[gorev_indeks][1] = True
+
+    # Seçim "4" (Görev Sil):
+    elif secim == '4':
+        sira_no = int(input("Lütfen silmek istediğiniz görevin sıra numarasını giriniz: "))
+        gorev_indeks = sira_no - 1
+        if gorev_indeks >= len(yapilacaklar):
+            print("Hatalı görev no girdiniz")
+        else:
+            yapilacaklar.pop(gorev_indeks)
+            print(f"{sira_no}. görev başarıyla silindi")
+
+
 
