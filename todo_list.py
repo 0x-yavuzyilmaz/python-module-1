@@ -37,7 +37,21 @@ while not sonlandirici:
                 print(f"{tik} {sayac}. {str(gorev[0])}")
                 sayac += 1
 
+    # Seçim "2" (Görev Ekle):
     elif secim == '2':
         yeni_gorev = input("Lütfen eklemek isteyeceğiniz görevi giriniz: ")
         yapilacaklar.append([yeni_gorev, False])
         print("Görev başarıyla eklendi.")
+
+    # Seçim "3" (Görev Tamamla):
+    elif secim == '3':
+        sira_no = int(input("Lütfen tamamlamak istediğiniz görecin sıra numarasını giriniz: "))
+        gorev_indeks = sira_no - 1
+        if gorev_indeks >= len(yapilacaklar):
+            print("Hatalı görev no girdiniz")
+        else:
+            if yapilacaklar[gorev_indeks][1] == True:
+                print("Görev zaten tamamlanmış gözüküyor!")
+            else:
+                yapilacaklar[gorev_indeks][1] = True
+
