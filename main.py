@@ -1,40 +1,55 @@
-# Alıştırma 1 (Kolay): Alan Hesaplayıcı
-
-def dikdortgen_alani_hesapla(kisa_kenar, uzun_kenar):
-    return kisa_kenar * uzun_kenar
-
-
-hesaplanan_alan = dikdortgen_alani_hesapla(5, 8)
-
-print(f"Kenarları 5 ve 8 olan dikdörtgenin alanı: {hesaplanan_alan}")
-
-
-# Alıştırma 2 (Orta Zorluk): Liste Analizi
-def liste_analiz_et(sayi_listesi):
-    if not sayi_listesi:
-        return 0, 0
+# # Alıştırma 1 (Kolay): Ortalama Bulucu
+def ortalama_hesapla(*sayilar):
+    if not sayilar:
+        return 0
     else:
-        return min(sayi_listesi), max(sayi_listesi)
+        return sum(sayilar) / len(sayilar)
 
 
-rakamlar = [9, 1, 5, 22, 13, 8]
-
-en_kucuk, en_buyuk = liste_analiz_et(rakamlar)
-
-print(f"Listenin en küçük elemanı {en_kucuk}, en büyük elemanı {en_buyuk}.")
+print(f"Sayıların aritmetik ortalması: {ortalama_hesapla():.2f}")
+print(f"Sayıların aritmetik ortalması: {ortalama_hesapla(10, 20, 30):.2f}")
+print(f"Sayıların aritmetik ortalması: {ortalama_hesapla(1, 2, 3, 4, 5, 6, 7):.2f}")
 
 
-def gecme_durumu_hesapla(vize_notu, final_notu):
-    ortalama = vize_notu * 0.4 + final_notu * 0.6
-    if ortalama >= 50:
-        return "Geçti"
+# Alıştırma 2 (Orta Zorluk): Detaylı Rapor Oluşturucu
+
+def rapor_olustur(rapor_basligi, *bolumler, **ek_bilgiler):
+    print(rapor_basligi.upper())
+    print(f"--- BÖLÜMLER---")
+    for bolum in bolumler:
+        print(f"-{bolum}")
+    print("-" * 20)
+
+    if ek_bilgiler:
+        for anahtar, deger in ek_bilgiler.items():
+            print(f"{anahtar.title()}: {deger}")
+
+
+rapor_olustur(
+    "Aylık Satış Raporu",
+    "Giriş: Bu rapor, son ayın satış verilerini özetlemektedir.",
+    "Gelişme: Satışlarda %15'lik bir artış gözlemlenmiştir.",
+    "Sonuç: Büyüme trendi devam etmektedir.",
+    yazar="Yavuz Yılmaz",
+    tarih="2025-08-30",
+    versiyon="1.1"
+)
+
+
+# Alıştırma 3 (İleri Seviye): Fonksiyon Fabrikası
+
+def detayli_selamlama(isim, unvan=""):
+    if unvan:
+        print(f"Hoş geldiniz, {unvan} {isim}!")
     else:
-        return "Kaldı"
+        print(f"Merhaba, {isim}!")
 
 
-sonuc = gecme_durumu_hesapla(50, 80)
-print(f"Öğrencinin vizesi 50, finali 80 ise geçme durumu: {sonuc}")
+def guvenli_cagirici(hedef_fonksiyon, *args, **kwargs):
+    print("Çağrı yapılıyor...")
+    hedef_fonksiyon(*args, **kwargs)
+    print("Çağrı tamamlandı.")
 
-# Aşağıdaki durum başarılı olacaktır.Çünkü gecme_durumu_hesapla(30, 40) -> "Kaldı" strinigini çıktı verecektir
-# "Kaldı"=="Kaldı" True olacağından if bloku print("Test başarılı!") çalışaacaktır.
-if gecme_durumu_hesapla(30, 40) == "Kaldı": print("Test başarılı!")
+
+guvenli_cagirici(detayli_selamlama, "Ali")
+guvenli_cagirici(detayli_selamlama, "Ayşe", unvan="Dr.")
