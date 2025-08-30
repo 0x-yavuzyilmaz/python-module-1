@@ -1,39 +1,48 @@
-# Alıştırma 1 (Kolay): İsim Kontrolü
+# Alıştırma 1
+def menuyu_goster():
+    print("""
+        --- YAPILACAKLAR LİSTESİ ---
+    1. Görevleri Göster
+    2. Görev Ekle
+    3. Görev Tamamla
+    4. Görev Sil
+    5. Çıkış
+    ---------------------------""")
 
-isimler = ["", "Ali", "Veli", "", "Ayşe", ""]
-for isim in isimler:
-    if isim:
-        print(f"Hoş geldin, {isim}!")
 
-# Alıştırma 2 (Orta Zorluk): Alışveriş Sepeti Durumu
+menuyu_goster()
+menuyu_goster()
 
-sepet = []
 
-if not sepet:
-    print("Sepetiniz şu anda boş.")
+# Alıştırma 2
 
-sepet.extend(["elma", "armut"])
+def ortalama_hesapla(notlar_listesi):
+    ortalama = sum(notlar_listesi) / len(notlar_listesi)
+    print(f"Notların ortalaması: {ortalama}")
 
-if sepet:
-    print("Sepetinizde ürünler var.")
-    print("-" * 30)
-    print("Sepetinizdeki ürünler:")
-    for nesne in sepet:
-        print(nesne.title())
 
-# Alıştırma 3 (İleri Seviye): Oyun Başlatma Onayı
+ogrenci1_notlari = [80, 90, 100]
+ogrenci2_notlari = [65, 75, 50, 85]
 
-onay = None
-while not onay:
-    cevap = input("Oyuna başlamak için 'evet' veya 'hayır' yazın: ").lower()
-    if cevap == "evet":
-        onay = "başla"
-    elif cevap == "hayır":
-        onay = "iptal"
-    else:
-        print("Lütfen sadece 'evet' veya 'hayır' yazın.")
+ortalama_hesapla(ogrenci1_notlari)
+ortalama_hesapla(ogrenci2_notlari)
 
-if onay == "başla":
-    print("Oyun başlıyor!")
-elif onay == "iptal":
-    print("Oyun iptal edildi.")
+
+# Alıştırma 3
+
+def profil_karti_olustur(isim: str, dogum_yili: int, meslek: str):
+    yas = 2025 - dogum_yili
+
+    print(f"""
+=========================
+PROFİL KARTI
+-------------------------
+İsim    : {isim.title()}
+Meslek  : {meslek.title()}
+Yaş     : {yas}
+=========================
+    """)
+
+
+profil_karti_olustur("Yavuz", 1986, "Matematik Öğretmeni")
+profil_karti_olustur("Cemil", 1960, "emekli")
