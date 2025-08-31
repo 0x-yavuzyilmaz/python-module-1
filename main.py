@@ -1,76 +1,85 @@
-# Alıştırma 1 (Kolay): Basit Docstring Ekleme
-def gecme_durumu_hesapla(vize_notu, final_notu):
-    """ Vize ve final notu verilen bir öğrencinin dersi geçip geçmeyeceğini belirler"""
-    ortalama = vize_notu * 0.4 + final_notu * 0.6
-    if ortalama >= 50:
-        return "Geçti"
-    else:
-        return "Kaldı"
+from typing import List, Tuple, Union
 
 
-help(gecme_durumu_hesapla)
-print(gecme_durumu_hesapla.__doc__)
+# Alıştırma 1
+def dikdortgen_alani_hesapla(kisa_kenar: float, uzun_kenar: float) -> float:
+    """Kenarları verilen bir dikdörtgenin alanını hesaplar.
 
-
-# Alıştırma 2 (Orta Zorluk): Detaylı Docstring Yazma
-
-def gorevi_tamamla(gorevler_listesi, gorev_numarasi):
-    """Görev listesindeki belirli bir görevi tamamlandı olarak işaretler.
-
-
-    Bu fonksiyon, verilen görev numarasını (1 tabanlı) liste indeksine çevirir ve ilgili görevin tamamlanma durumunu
-    True yapar.
+    Kısa ve uzun kenarları float, cinsinden verilen dikdörgenin alanını return ile döndürür.
 
     Args:
-        gorevler_listesi:(list) Her elemanı [gorev_metni, durum] formatında olan iç içe görev listesi
-        gorev_numarasi:(int): Tamamlanacak görevin kullanıcı tarafından görülen sıra numarası (1'den başlar).
+        kisa_kenar ( float): Dikdörtgenin kısa kenarı
+        uzun_kenar (float): Dikdörtgenin uzun kenarı
 
     Returns:
-        bool: İşlemin başarılı olup olmadığını belirten bir boolean değer. Eğer görev numarası geçerliyse True,
-        geçersizse False döndürür.
+        float: dikdörtgenin alanını döndürür.
 
     """
+    return kisa_kenar * uzun_kenar
 
+
+print(dikdortgen_alani_hesapla(5, 5))
+# çıktı:25
+print(dikdortgen_alani_hesapla("beş", 10))  # uyarı: Expected type 'float', got 'str' instead
+
+
+# çıktı:beşbeşbeşbeşbeşbeşbeşbeşbeşbeş
+
+# Alıştırma 2
+
+def liste_analiz_et(sayi_listesi: List[int]) -> Tuple[int, int]:
+    """Verilen listedeki sayıların en küçük ve en büyük olanını döndürür.
+
+    Verilen listedeki verilerin en küçük ve en büyük olanlarını sırasıyla döndürür.Eğer liste boş ise 0 ve 0
+    değerlerini döndürür.
+
+    Args:
+        sayi_listesi(List[int]): En küçük ve en büyüğün bulunacağı sayıs listesi.Veriler int olmalıdır.
+
+    Returns:
+        Tuple[int,int]: En küçük ve en büyük veriyi sırasıyla int olarak döndürüt. Liste boş ise 0 ve 0 döndürür.
+
+    """
+    if not sayi_listesi:
+        return 0, 0
+    else:
+        return min(sayi_listesi), max(sayi_listesi)
+
+
+liste: List[int] = [10, 2, 88, -5]
+
+minimum, maximum = liste_analiz_et(liste)
+print(f"Listedeki en küçük sayı: {minimum}, en büyük sayı: {maximum}")
+
+help(liste_analiz_et)
+
+
+# Alıştırma 3
+
+
+# Orijinal Hali
+def gorevi_tamamla(gorevler_listesi: List[List[Union[str, bool]]], gorev_numarasi: int) -> Union[bool, None]:
+    """Liste şeklinde tamamlancak görevler ve görev numarası verildiğinde verilen görevleri tamamlar.
+
+    Liste şeklinde, bu listeninde string ve bool şeklinde bir listeden oluştuğunu göze alarak belirtilen görevi
+    tamamlar ve True olarak döndürür. Eğer görev numarası yanlışsa None değeri döndürür.
+
+    Args:
+        gorevler_listesi(List[List[Union[str, bool]]]): Görev listesi bir listeden, bu listede Görev ve Görevin
+        tamamlanıp tamamlanmadığını belirten True veya False değerlerinden oluşur.
+        gorev_numarasi: Görev numarası tamsayıdan oluşur.
+
+    Returns:
+        bool veya None: Görev tamamlandıysa True, görev numarası hatalıysa None değeri
+
+    """
     indeks = gorev_numarasi - 1
-    if indeks >= len(gorevler_listesi) or indeks < 0:
-        return False
+    if 0 <= indeks < len(gorevler_listesi):
+        gorevler_listesi[indeks][1] = True
+        return True
     else:
-        # Eğer zaten tamamlandıysa uyar, değilse tamamlandı olarak işaretle
-        if gorevler_listesi[indeks][1]:
-            gorevler_listesi[indeks][1] = True
-            return True
+        return None  # Hata durumunda None döndürelim
 
 
-help(gorevi_tamamla)
-
-
-# Alıştırma 3 (İleri Seviye): Mevcut Bir Fonksiyonu Belgeleme
-
-def rapor_olustur(rapor_basligi, *bolumler, **ek_bilgiler):
-    """Bir rapor taslağı oluşturur.
-
-    Rapor başlığı ve kullanıcı tarafından eğer verilirse raporun bölümleri ile kullanıcının raporfda bulunmasını
-    istediği ek bilgiler rapora eklenir.
-
-    Args:
-        rapor_basligi: (str) Raporun başlığını oluşturacak metin.
-        *bolumler: (tuple) Raporun bölümlerini içeren tuple.Bu tuple'daki veriler for döngüsü ile başına '-'
-        yazılarak sıralanır.
-        **ek_bilgiler: (dict) Ek bilgileri içeren sözlük. Bu sözlükteki veriler for döngüsü ile anahtar: değer
-        şeklinde yazılır.
-
-    Returns:
-        None: "Bu fonksiyon bir şey döndürmez.
-
-    """
-    print(rapor_basligi.upper())
-    for bolum in bolumler:
-        print(f"- {bolum}")
-    if ek_bilgiler:
-        print("-" * 20)
-        print("Ek Bilgiler:")
-        for anahtar, deger in ek_bilgiler.items():
-            print(f"{anahtar.title()}: {deger}")
-
-
-help(rapor_olustur)
+yapilacaklar = [["Ekmek al", False], ["Sütü ısıt", False]]
+print(gorevi_tamamla(yapilacaklar, 1))
