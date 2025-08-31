@@ -1,80 +1,71 @@
-# Alıştırma 1 (Kolay): Kapsamları Gözlemleme
-
-kullanici_adi = "Global Admin"
-
-
-def lokal_test():
-    kullanici_adi = "Lokal Kullanıcı"
-    print(f"Fonksiyon içindeki kullanıcı: {kullanici_adi}")
+# Alıştırma 1
+def kullanici_selamla(isim):
+    mesaj = "Hoş geldin, "
+    print(mesaj + ad)  # Dikkatli bak!
 
 
-lokal_test()
-print(f"Fonksiyon dışındaki kullanıcı: {kullanici_adi}")
+kullanici_selamla("Yavuz")
 
-# ÇIKTI
-# Fonksiyon içindeki kullanıcı: Lokal Kullanıcı
-# Fonksiyon dışındaki kullanıcı: Global Admin
+"""
+Hatanın Tipi Nedir?
+NameError:
 
-# Fonksiyon içindeki ve dışındaki çıktıların farklı olmasının sebebi local scope içerisinde 'kullanici_adi'
-# değişkenin tanımlanmış olmasından kaynaklanır. Çünkü python önce fonksiyom içerisindeki tanımlamalara bakar
-# eğer globalde olan bir değişken lokalde tanımlanmışsa onu kullanır.
-# ama yine de kötü uygulama gölgeleme kusuru: Shadows name 'kullanici_adi' from outer scope
+--Hatanın Açıklaması Ne Diyor?
+-name 'ad' is not defined
+--Hata Tam Olarak Hangi Dosyanın Hangi Satırında Oluşuyor?
+-line 3, in kullanici_selamla
+--Sorunun Kök Nedeni Nedir? (Koddaki mantık hatası veya yazım hatası nedir?)
+-Sorunun nedeni tanımlanmamış değişkeni kullanmak yani parametre olarak 'isim' değişkeni kullanmışken,
+ fonksiyon içerisinde 'ad' değişkeni kullandık.
+--Nasıl Düzeltilir?
+- Fonksiyon içerindeki 'ad' değişkenini 'isim' olarak değiştireceğiz.
+"""
+
 
 # Alıştırma 2
-
-islem_sayaci = 0
-
-
-def islem_yap_global():
-    global islem_sayaci
-    islem_sayaci += 1
-    return islem_sayaci
+def son_elemani_getir(liste):
+    # Bu fonksiyon listenin son elemanını getirmeyi amaçlıyor
+    # ama listenin uzunluğunu indeks olarak kullanıyor.
+    return liste[len(liste) - 1]
 
 
-print(f"1. sefer: {islem_yap_global()}")
-print(f"2. sefer: {islem_yap_global()}")
-print(f"3. sefer: {islem_yap_global()}")
+harfler = ['a', 'b', 'c']
+son_harf = son_elemani_getir(harfler)
+print(son_harf)
 
-islem_sayaci = 0
-print("-" * 20)
-
-
-def islem_yap_return(mevcut_sayac):
-    mevcut_sayac += 1
-    return mevcut_sayac
-
-
-for i in range(3):
-    islem_sayaci = islem_yap_return(islem_sayaci)
-    print(islem_sayaci)
-
-# ÇIKTI:
-# 1. sefer: 1
-# 2. sefer: 2
-# 3. sefer: 3
-# --------------------
-# 1
-# 2
-# 3
-
-# return yöntemi kesinlikle dah öngörülebilir. Çünkü diğer türlü daha önce fonksiyonun kaç kere çalıştığını
-# bilemediğmiz durumlarda global değişkenin(islem_sayaci)' nin ne olduğu hakkında bir fikrimiz bulunmuyor.
-# hataya çok açık.
-
-CONFIG = ("production", "192.168.1.1", 8080)
+"""
+--Hatanın Tipi Nedir?
+- IndexError:list index out of range
+--Hata Tam Olarak Hangi Satırda Oluşuyor?
+- line 27, in son_elemani_getir
+--Sorunun Kök Nedeni Nedir? (Sıfır tabanlı indeksleme ile len() fonksiyonunun ilişkisini düşün.
+  harfler listesinin uzunluğu 3 ise, geçerli en son indeks kaçtır?)
+- Sorunun kök nedeni liste uzunluğu listenin son elemanı değildir. Onun 1 eksiğidir. Yani 22dir
+--Nasıl Düzeltilir? (Doğru indeksi nasıl hesaplarız?)
+- return liste[len(liste)-1] yaparak
+"""
 
 
-def veritabani_baglan():
-    print(f"{CONFIG[1]}:{CONFIG[2]} adresindeki veritabanına bağlanılıyor...")
+# Alıştırma 3:
+
+def listeye_ekle(veri_listesi, eleman):
+    # Fonksiyonu yazan kişi, listeye ekleme metodunun
+    # 'add' olduğunu düşünmüş olabilir.
+    veri_listesi.append(eleman)
+    return veri_listesi
 
 
-def log_mesaji_yaz(mesaj):
-    print(f"[{CONFIG[0]}] MODU: {mesaj}")
+rakamlar = [1, 2, 3]
+yeni_liste = listeye_ekle(rakamlar, 4)
+print(yeni_liste)
 
-
-veritabani_baglan()
-log_mesaji_yaz("Bağlantı başarılı!")
-
-# global anahtar kelimesi kullanmamıza gerek kalmamasının sebebi bu tuple'saki değişkenler lokal scope da
-# tanımlanmadığı için zaten fonksiyon içerisinden ulaşılabilir haldedir. Buradaki veriler tuple içerisinde
-# olduğundan zaten değiştirilme imkanı da bulunmamaktadır.
+"""
+--Hatanın Tipi Nedir?
+- AttributeError:
+--Hatanın Açıklaması Ne Diyor? (Özellikle 'list' object has no attribute 'add' kısmı ne anlama geliyor?)
+- 'list' object has no attribute 'add': yani 'list' nesnesinin .add adında bir özelliği/metodu olmadığını söylüyor
+--Sorunun Kök Nedeni Nedir?
+  veri_listesi.add(eleman) kısmı sorunun nedenidir.
+--Doğru Metot Nedir ve Kod Nasıl Düzeltilir?
+- doğru metod .append(eleman) olmalıdır.
+"""
