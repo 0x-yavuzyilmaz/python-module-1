@@ -1,3 +1,7 @@
+"""
+
+"""
+
 from atm_app import islemler
 
 hesap = {
@@ -21,12 +25,12 @@ while True:
         islemler.bakiye_sorgula(hesap)
 
     elif secim == "2":
-        yatirilacak_miktar = int(input("Lütfen Yatırılacak Miktarı Giriniz:"))
+        yatirilacak_miktar = float(input("Lütfen Yatırılacak Miktarı Giriniz:"))
         hesap = islemler.para_yatir(hesap, yatirilacak_miktar)
 
     elif secim == "3":
-        cekilecek_miktar = int(input("Lütfen Çekilecek Miktarı Giriniz:"))
-        hesap = islemler.para_yatir(hesap, cekilecek_miktar)
+        cekilecek_miktar = float(input("Lütfen Çekilecek Miktarı Giriniz:"))
+        hesap = islemler.para_cek(hesap, cekilecek_miktar)
     elif secim == "4":
         print("ATM işlemleri sonlandırıldı.")
         break
